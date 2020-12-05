@@ -9,11 +9,87 @@ body,
 html {
 	line-height: 1.6;
 	font-size: 10px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
 }
 
-/* .container {
-} */
+/* Container */
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0 auto;
+	max-width: 800px;
+	color: #333;
+}
 
-p {
+/* Prelude */
+#mask-up {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 1.8rem;
+	text-align: center;
+	background-color: #e9e9e9;
+	padding: 50px;
+}
+
+#mask-up h1 {
+	font-family: 'Major Mono Display', monospace;
+	font-size: 5rem;
+}
+
+#mask-up h1 #title:hover,
+#mask-up h1 #enter:hover {
+	background-color: #d6d6d6;
+	cursor: pointer;
+}
+
+#quote {
+	color: #999;
+	font-style: italic;
+}
+
+#mask-up #quote,
+#mask-up p,
+#mask-up #license-icon,
+#mask-up h1 #enter {
+	display: none;
+}
+
+#mask-up #intro {
+	font-weight: bold;
+}
+
+#intro #total-case,
+#intro #total-death {
+	color: #af2d2d;
+}
+
+#mask-up #credit {
+	padding-top: 40px;
+	padding-bottom: 10px;
 	font-size: 1.4rem;
+}
+
+#credit a {
+	text-decoration: none;
+	color: #1d5eb9;
+	font-weight: bold;
+}
+
+#license-icon i {
+	padding: 0 2px;
+	color: #1d5eb9;
+}
+
+/* Interface */
+#interface {
+	background-color: rgb(128, 112, 92);
+	display: none;
+}
+
+/* Navigation */
+nav {
+	display: none;
 }

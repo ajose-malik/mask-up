@@ -3,6 +3,15 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+			rel="stylesheet"
+		/>
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -10,39 +19,44 @@
 			crossorigin="anonymous"
 		/>
 		<link rel="stylesheet" href="./style.css" />
-		<title>Mask-Up</title>
+		<title>Mask/Up</title>
 	</head>
 
 	<body>
 		<div class="container">
 			<!-- Prelude -->
 			<div id="mask-up">
-				<h1>MASK-UP</h1>
-				<p>
-					<strong>Mask-Up</strong> is a tiny project that sheds light on the
-					global impact of <strong>COVID-19</strong>, within the context of the
-					United States. The total cases in the United States at the moment is
-					<span id="total-case">???</span>, while the current death toll is
-					<span id="death-total">???</span> and still counting. Although
-					Covid-19 is imperceivable by the naked eye, it is as real as the air
-					we breathe.
+				<h1><span id="title">MASK/UP</span><span id="enter">ENTER</span></h1>
+				<p id="quote"></p>
+				<p id="intro">
+					Mask/Up sheds a light on the impact of COVID-19 within the United
+					States. The total cases in the United States at the moment is
+					<span id="total-case"></span>, while the current death toll is
+					<span id="total-death"></span>. Although Covid-19 is imperceivable to
+					the naked eye, it is as real as the air we breathe.
 				</p>
-				<p>
-					The data used in this project is from
-					<a
-						href="https://covidtracking.com/data"
-						target="_blank"
-						rel="noopener noreferrer"
+				<p id="credit">
+					<a href="https://covidtracking.com/data" target="_blank"
 						>The COVID Tracking Project</a
 					>
-					at The Atlantic. <i class="fab fa-creative-commons"></i
+					at
+					<a href="https://www.theatlantic.com/" target="_blank"
+						>The Atlantic</a
+					>
+					is the data source for this project.
+				</p>
+				<a
+					href="https://creativecommons.org/licenses/by/4.0/"
+					target="_blank"
+					id="license-icon"
+				>
+					<i class="fab fa-creative-commons"></i
 					><i class="fab fa-creative-commons-by"></i
 					><i class="fab fa-creative-commons-nc"></i>
-				</p>
+				</a>
 			</div>
-			<!-- Plug and Play -->
+			<!-- Interface -->
 			<section id="interface">
-				<p id="quote">quote|||||||||||||||||||||</p>
 				<div id="display">
 					<h2 id="state-name">State Name</h2>
 					<div id="options">
@@ -62,13 +76,12 @@
 				<div id="right"><i class="fas fa-chevron-right"></i></div>
 			</nav>
 		</div>
-
 		<script
 			src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
 			integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
 			crossorigin="anonymous"
 		></script>
-		<script src="./helper.js"></script>
+		<script src="./quotes.js"></script>
 		<script src="./app.js"></script>
 	</body>
 </html>
