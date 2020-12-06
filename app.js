@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Data Request Function ////////////////////////////////////////////
 
-const request = location => {
+const request = (location, place) => {
 	$.ajax({
 		url: `https://api.covidtracking.com/v1/${location}.json`
 	}).then(
@@ -13,12 +13,17 @@ const request = location => {
 
 				$('#total-case').append(convertStr(totalCase));
 				$('#total-death').append(convertStr(totalDeath));
-				$('#location').append('US Total');
+				$('#place').append('US Total');
 			} else {
+				// const totalCase = String(data.positive);
+				// const totalDeath = String(data.death);
+				// $('#total-case').append(convertStr(totalCase));
+				// $('#total-death').append(convertStr(totalDeath));
+				$('#place').text(place);
 			}
 		},
 		() => {
-			console.log('Error United States');
+			console.log('DISASTER');
 		}
 	);
 };
@@ -37,6 +42,7 @@ request('/us/current');
 
 // Request for United States
 $('#us-total').click(function () {
+	$('#place').empty();
 	request('/us/current');
 });
 
@@ -44,7 +50,13 @@ $('#us-total').click(function () {
 $('#state-select').change(function () {
 	const stateAbbr = $(this).val().toLowerCase();
 	const state = `/states/${stateAbbr}/current`;
-	request(state);
+	const place = $(this).find('option:selected').text();
+	console.log(place);
+	console.log(state);
+	request(state, place);
+	setTimeout(() => {
+		$(this).val('');
+	}, 1000);
 });
 
 // Toggle Intro Slide
