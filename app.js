@@ -6,20 +6,22 @@ const request = (location, place) => {
 		url: `https://api.covidtracking.com/v1/${location}.json`
 	}).then(
 		data => {
-			data = data[0];
-			if (location === '/us/current') {
-				const totalCase = String(data.positive);
-				const totalDeath = String(data.death);
+			const usData = data[0];
+			const stateData = data;
+			if (location === 'us/current') {
+				const totalCase = String(usData.positive);
+				const totalDeath = String(usData.death);
 
-				$('#total-case').append(convertStr(totalCase));
-				$('#total-death').append(convertStr(totalDeath));
-				$('#place').append('US Total');
+				$('#total-case').text(convertStr(totalCase));
+				$('#total-death').text(convertStr(totalDeath));
+				$('#place').text('United States');
 			} else {
 				// const totalCase = String(data.positive);
 				// const totalDeath = String(data.death);
 				// $('#total-case').append(convertStr(totalCase));
 				// $('#total-death').append(convertStr(totalDeath));
 				$('#place').text(place);
+				console.log(stateData);
 			}
 		},
 		() => {
@@ -35,7 +37,7 @@ const request = (location, place) => {
 // randQuotes();
 
 // Default Request
-request('/us/current');
+request('us/current');
 
 /////////////////////////////////////////////////////////////////////////////
 // Event Handlers //////////////////////////////////////////////////////////
@@ -43,16 +45,14 @@ request('/us/current');
 // Request for United States
 $('#us-total').click(function () {
 	$('#place').empty();
-	request('/us/current');
+	request('us/current');
 });
 
 // Request by State
 $('#state-select').change(function () {
 	const stateAbbr = $(this).val().toLowerCase();
-	const state = `/states/${stateAbbr}/current`;
+	const state = `states/${stateAbbr}/current`;
 	const place = $(this).find('option:selected').text();
-	console.log(place);
-	console.log(state);
 	request(state, place);
 	setTimeout(() => {
 		$(this).val('');
@@ -74,4 +74,5 @@ $('#enter').click(() => {
 $('h4').click(() => {
 	$('#interface').hide();
 	$('#mask-up').show();
+	$('#intro, #mask-up p, #license-icon, #enter').hide();
 });

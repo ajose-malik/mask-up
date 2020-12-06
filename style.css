@@ -25,9 +25,10 @@ html {
 
 /* Prelude /////////////////////////////////////////////////////////////////////*/
 #mask-up {
-	display: flex;
+	/* display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center; */
 	font-size: 1.8rem;
 	text-align: center;
 	background-color: #e9e9e9;
@@ -45,6 +46,23 @@ html {
 	cursor: pointer;
 }
 
+#enter {
+	box-shadow: 0px 0px 5px #1d5eb9;
+	padding-left: 20px;
+	padding-right: 12px;
+	margin: 20px auto;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	letter-spacing: 0.7rem;
+	font-size: 2rem;
+	color: #1d5eb9;
+	font-weight: bold;
+	border-radius: 50px;
+	border: none;
+	background-color: #fff;
+	width: 200px;
+}
+
 #enter:hover {
 	background-color: #d6d6d6;
 }
@@ -52,24 +70,11 @@ html {
 #mask-up p,
 #mask-up #license-icon,
 #enter {
-	/* display: none; */
+	display: none;
 }
 
 #mask-up #intro {
 	font-weight: bold;
-}
-
-#enter {
-	border: #1d5eb9 1px solid;
-	padding-left: 7px;
-	margin: 20px 0;
-	font-family: 'Roboto', sans-serif;
-	letter-spacing: 0.7rem;
-	font-size: 2rem;
-	color: #1d5eb9;
-	font-weight: bold;
-	border-radius: 50px;
-	background-color: #fff;
 }
 
 #intro #total-case,
@@ -77,12 +82,12 @@ html {
 	color: #af2d2d;
 }
 
-#mask-up #credit {
+#mask-up .credit {
 	padding-bottom: 10px;
-	font-size: 1.4rem;
+	font-size: 1rem;
 }
 
-#credit a {
+.credit a {
 	text-decoration: none;
 	color: #1d5eb9;
 	font-weight: bold;
@@ -102,7 +107,6 @@ nav {
 #interface {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	font-size: 1.8rem;
 	text-align: center;
 	background-color: #e9e9e9;
@@ -112,7 +116,7 @@ nav {
 
 #interface h4 {
 	font-family: 'Major Mono Display', monospace;
-	font-size: 3rem;
+	font-size: 5rem;
 }
 
 h4:hover {
@@ -126,25 +130,35 @@ h4:hover {
 
 #options {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
+	box-shadow: 0px 0px 5px #1d5eb9;
+	border-radius: 5px;
+	margin: 20px auto;
+	padding: 20px;
 }
 
 .selection {
-	padding: 10px;
+	padding-top: 55px;
+	border: 5px solid #af2d2d;
+	border-radius: 100px;
+	color: #333;
+	width: 150px;
+	height: 150px;
 }
 
 #state-select,
-#search,
 #us-total {
 	border-radius: 50px;
-	padding: 3px;
-	border: #1d5eb9 2px solid;
+	padding: 5px;
+	box-shadow: 0px 0px 5px #1d5eb9;
+	border: none;
 	color: #1d5eb9;
 	background-color: #fff;
+	margin: 0 5px;
 }
 
 #state-select:focus-visible,
-#search,
 #us-total {
 	outline: none;
 	color: #1d5eb9;
@@ -152,14 +166,13 @@ h4:hover {
 }
 
 #state-select:hover,
-#search:hover,
 #us-total:hover {
 	background-color: #d6d6d6;
 }
 
 button {
+	box-shadow: 0px 0px 5px #1d5eb9;
 	color: #1d5eb9;
-	border: #1d5eb9 2px solid;
 	padding: 3px;
 	border-radius: 50px;
 	cursor: pointer;
