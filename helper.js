@@ -2,11 +2,10 @@
 // Random Quotes Function ///////////////////////////////////////////////////////
 const randQuotes = () => {
 	const rand = () => Math.floor(Math.random() * quotes.length);
-	$('#quote').append(quotes[rand()]);
+	$('#quote').text(quotes[rand()]);
 	setInterval(() => {
-		$('#quote').empty();
-		$('#quote').append(quotes[rand()]);
-	}, 10000);
+		$('#quote').text(quotes[rand()]);
+	}, 1000);
 };
 
 // Insert Comma Function /////////////////////////////////////////////////////
