@@ -57,8 +57,18 @@ $.ajax({
 // DOM Functions //////////////////////////////////////////////////////////
 
 // Toggle Intro Slide
-$('#mask-up h1 #title').click(() => {
-	$(
-		'#mask-up #quote, #mask-up p, #mask-up #license-icon, #mask-up h1 #enter'
-	).toggle();
+$('h1').click(() => {
+	$('#mask-up p, #license-icon, #enter').toggle();
+});
+
+// Toggle Interface Slide
+$('#enter').click(() => {
+	$('#mask-up').hide();
+	$('#interface').show();
+});
+
+// Back to Intro Slide
+$('h4').click(() => {
+	$('#interface').hide();
+	$('#mask-up').show();
 });

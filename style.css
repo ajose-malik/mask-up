@@ -1,4 +1,4 @@
-/* Reset */
+/* Reset /////////////////////////////////////////////////////////////////////*/
 * {
 	margin: 0;
 	padding: 0;
@@ -13,7 +13,7 @@ html {
 	font-weight: 300;
 }
 
-/* Container */
+/* Container ////////////////////////////////////////////////////////////////////*/
 .container {
 	display: flex;
 	flex-direction: column;
@@ -23,7 +23,7 @@ html {
 	color: #333;
 }
 
-/* Prelude */
+/* Prelude /////////////////////////////////////////////////////////////////////*/
 #mask-up {
 	display: flex;
 	flex-direction: column;
@@ -32,6 +32,7 @@ html {
 	text-align: center;
 	background-color: #e9e9e9;
 	padding: 50px;
+	display: none;
 }
 
 #mask-up h1 {
@@ -39,25 +40,33 @@ html {
 	font-size: 5rem;
 }
 
-#mask-up h1 #title:hover,
-#mask-up h1 #enter:hover {
-	background-color: #d6d6d6;
+#mask-up h1:hover,
+#enter:hover {
 	cursor: pointer;
 }
 
-#quote {
-	color: #999;
-	font-style: italic;
+#enter:hover {
+	background-color: #d6d6d6;
 }
 
-#mask-up #quote,
 #mask-up p,
 #mask-up #license-icon,
-#mask-up h1 #enter {
-	display: none;
+#enter {
+	/* display: none; */
 }
 
 #mask-up #intro {
+	font-weight: bold;
+}
+
+#enter {
+	border: #1d5eb9 1px solid;
+	padding-left: 7px;
+	margin: 20px 0;
+	font-family: 'Roboto', sans-serif;
+	letter-spacing: 0.7rem;
+	font-size: 2rem;
+	color: #1d5eb9;
 	font-weight: bold;
 }
 
@@ -67,7 +76,6 @@ html {
 }
 
 #mask-up #credit {
-	padding-top: 40px;
 	padding-bottom: 10px;
 	font-size: 1.4rem;
 }
@@ -83,13 +91,33 @@ html {
 	color: #1d5eb9;
 }
 
-/* Interface */
+/* Interface ////////////////////////////////////////////////////////////////////*/
 #interface {
-	background-color: rgb(128, 112, 92);
-	display: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 1.8rem;
+	text-align: center;
+	background-color: #e9e9e9;
+	padding: 50px;
+	/* display: none; */
 }
 
-/* Navigation */
+#interface h4 {
+	font-family: 'Major Mono Display', monospace;
+	font-size: 3rem;
+}
+
+h4:hover {
+	cursor: pointer;
+}
+
+#quote {
+	color: #999;
+	font-style: italic;
+}
+
+/* Navigation //////////////////////////////////////////////////////////////////*/
 nav {
 	display: none;
 }
