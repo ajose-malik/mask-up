@@ -24,7 +24,7 @@
 
 	<body>
 		<div class="container">
-			<!-- Prelude -->
+			<!-- Prelude ////////////////////////////////////////////////////////////////-->
 			<div id="mask-up">
 				<h1>MASK/UP</h1>
 				<p id="intro">
@@ -60,26 +60,36 @@
 					><i class="fab fa-creative-commons-nc"></i>
 				</a>
 			</div>
-			<!-- Navigation -->
-			<nav>
-				<div id="left"><i class="fas fa-chevron-left"></i></div>
-				<div id="right"><i class="fas fa-chevron-right"></i></div>
-			</nav>
-			<!-- Interface -->
+
+			<!-- Interface ////////////////////////////////////////////////////////// -->
 			<section id="interface">
 				<h4>MASK/UP</h4>
 				<p id="quote">bhjshwfvvhewsjafvjojewfhvoewfvwsofhdwsovhsjfduovuh</p>
 				<h2 id="place"></h2>
+
+				<!-- State Display -->
 				<div id="options">
-					<div class="selection" id="cases">Cases</div>
-					<div class="selection" id="outcomes">Outcomes</div>
-					<div class="selection" id="r-cases">Race Cases</div>
-					<div class="selection" id="r-deaths">Race Deaths</div>
-					<div class="selection" id="hosp">Hospitalization</div>
-					<div class="selection" id="ltc">Long-Term Care</div>
+					<div class="selection" id="opt-cases">Cases</div>
+					<div class="selection" id="opt-outcomes">Outcomes</div>
+					<div class="selection" id="opt-r-cases">Race Cases</div>
+					<div class="selection" id="opt-r-deaths">Race Deaths</div>
+					<div class="selection" id="opt-hosp">Hospitalization</div>
+					<div class="selection" id="opt-ltc">Long-Term<br />Care</div>
 				</div>
-				<div id="details"></div>
+
+				<!-- Detail Display -->
+				<!-- <div id="details">
+					<div class="data" id="det-cases">Cases</div>
+					<div class="data" id="det-outcomes">Outcomes</div>
+					<div class="data" id="det-r-cases">Race Cases</div>
+					<div class="data" id="det-r-deaths">Race Deaths</div>
+					<div class="data" id="det-hosp">Hospitalization</div>
+					<div class="data" id="det-ltc">Long-Term<br />Care</div>
+				</div> -->
+
+				<!-- Form Request -->
 				<form action="#" id="state-submit">
+					<nav id="left"><i class="fas fa-chevron-left"></i></nav>
 					<button id="us-total">US Total</button>
 					<select name="states" id="state-select">
 						<option value="">- - -Please choose a state- - -</option>
@@ -139,6 +149,7 @@
 						<option value="WI">Wisconsin</option>
 						<option value="WY">Wyoming</option>
 					</select>
+					<nav id="right"><i class="fas fa-chevron-right"></i></nav>
 				</form>
 			</section>
 		</div>
