@@ -1,60 +1,51 @@
-/////////////////////////////////////////////////////////////////////////
-// Random Quotes ///////////////////////////////////////////////////////
-const randQuotes = () => {
-	const rand = () => Math.floor(Math.random() * quotes.length);
-	$('#quote').append(quotes[rand()]);
-	setInterval(() => {
-		$('#quote').empty();
-		$('#quote').append(quotes[rand()]);
-	}, 10000);
+///////////////////////////////////////////////////////////////////////////////
+// Data Request Function ////////////////////////////////////////////
+
+const request = location => {
+	$.ajax({
+		url: `https://api.covidtracking.com/v1/${location}.json`
+	}).then(
+		data => {
+			data = data[0];
+			if (location === '/us/current') {
+				const totalCase = String(data.positive);
+				const totalDeath = String(data.death);
+
+				$('#total-case').append(convertStr(totalCase));
+				$('#total-death').append(convertStr(totalDeath));
+				$('#location').append('US Total');
+			} else {
+			}
+		},
+		() => {
+			console.log('Error United States');
+		}
+	);
 };
+
+////////////////////////////////////////////////////////////////////////////////
+// Function Calls //////////////////////////////////////////////////////////////
+
+// Random Quotes
 // randQuotes();
 
-///////////////////////////////////////////////////////////////////////////////
-// Data Request for United States ////////////////////////////////////////////
-$.ajax({
-	url: 'https://api.covidtracking.com/v1/us/current.json'
-}).then(
-	data => {
-		data = data[0];
-		const totalCase = String(data.positive);
-		const totalDeath = String(data.death);
-
-		// Insert Comma Function
-		const convertStr = str => {
-			strArr = str.split('');
-			if (strArr.length > 3 && strArr.length < 7) {
-				strArr.splice(-3, 0, ',');
-				return strArr.join('');
-			} else if (strArr.length > 6 && strArr.length < 10) {
-				strArr.splice(-3, 0, ',');
-				strArr.splice(-7, 0, ',');
-				return strArr.join('');
-			}
-		};
-
-		$('#total-case').append(convertStr(totalCase));
-		$('#total-death').append(convertStr(totalDeath));
-
-		// Data Request for Each State ///////////////////
-		// $.ajax({
-		// 	url: 'https://api.covidtracking.com/v1/us/current.json'
-		// }).then(
-		// 	data => {
-		// 		console.log(data);
-		// 	},
-		// 	() => {
-		// 		console.log('Error Each States');
-		// 	}
-		// );
-	},
-	() => {
-		console.log('Error United States');
-	}
-);
+// Default Request
+request('/us/current');
 
 /////////////////////////////////////////////////////////////////////////////
-// DOM Functions //////////////////////////////////////////////////////////
+// Event Handlers //////////////////////////////////////////////////////////
+
+// Request for United States
+$('#us-total').click(function () {
+	request('/us/current');
+});
+
+// Request by State
+$('#state-select').change(function () {
+	const stateAbbr = $(this).val().toLowerCase();
+	const state = `/states/${stateAbbr}/current`;
+	request(state);
+});
 
 // Toggle Intro Slide
 $('h1').click(() => {

@@ -68,6 +68,8 @@ html {
 	font-size: 2rem;
 	color: #1d5eb9;
 	font-weight: bold;
+	border-radius: 50px;
+	background-color: #fff;
 }
 
 #intro #total-case,
@@ -89,6 +91,11 @@ html {
 #license-icon i {
 	padding: 0 2px;
 	color: #1d5eb9;
+}
+
+/* Navigation //////////////////////////////////////////////////////////////////*/
+nav {
+	display: none;
 }
 
 /* Interface ////////////////////////////////////////////////////////////////////*/
@@ -117,7 +124,48 @@ h4:hover {
 	font-style: italic;
 }
 
-/* Navigation //////////////////////////////////////////////////////////////////*/
-nav {
-	display: none;
+#options {
+	display: flex;
+	justify-content: center;
+}
+
+.selection {
+	padding: 10px;
+}
+
+#state-select,
+#search,
+#us-total {
+	border-radius: 50px;
+	padding: 3px;
+	border: #1d5eb9 2px solid;
+	color: #1d5eb9;
+	background-color: #fff;
+}
+
+#state-select:focus-visible,
+#search,
+#us-total {
+	outline: none;
+	color: #1d5eb9;
+	border-radius: 50px;
+}
+
+#state-select:hover,
+#search:hover,
+#us-total:hover {
+	background-color: #d6d6d6;
+}
+
+button {
+	color: #1d5eb9;
+	border: #1d5eb9 2px solid;
+	padding: 3px;
+	border-radius: 50px;
+	cursor: pointer;
+}
+
+#us-total {
+	padding-left: 10px;
+	padding-right: 12px;
 }
