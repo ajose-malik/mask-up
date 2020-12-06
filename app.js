@@ -30,25 +30,15 @@ const request = (location, place) => {
 	);
 };
 
-////////////////////////////////////////////////////////////////////////////////
-// Function Calls //////////////////////////////////////////////////////////////
-
-// Random Quotes
-// randQuotes();
-
-// Default Request
-request('us/current');
-
 /////////////////////////////////////////////////////////////////////////////
 // Event Handlers //////////////////////////////////////////////////////////
 
-// Request for United States
-$('#us-total').click(function () {
-	$('#place').empty();
+// Request United States
+$('#us-total').click(() => {
 	request('us/current');
 });
 
-// Request by State
+// Request State
 $('#state-select').change(function () {
 	const stateAbbr = $(this).val().toLowerCase();
 	const state = `states/${stateAbbr}/current`;
@@ -57,6 +47,15 @@ $('#state-select').change(function () {
 	setTimeout(() => {
 		$(this).val('');
 	}, 1000);
+});
+
+// Request Random
+$('#random').click(() => {
+	const rand = Math.floor(Math.random() * 55 + 1);
+	const randState = $('#state-select').children().eq(rand).val().toLowerCase();
+	const place = $('#state-select').children().eq(rand).text();
+	const state = `states/${randState}/current`;
+	request(state, place);
 });
 
 // Toggle Intro Slide
@@ -76,3 +75,12 @@ $('h4').click(() => {
 	$('#mask-up').show();
 	$('#intro, #mask-up p, #license-icon, #enter').hide();
 });
+
+////////////////////////////////////////////////////////////////////////////////
+// Initialization //////////////////////////////////////////////////////////////
+
+// Random Quotes
+// randQuotes();
+
+// Default Request
+request('us/current');

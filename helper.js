@@ -5,7 +5,7 @@ const randQuotes = () => {
 	$('#quote').text(quotes[rand()]);
 	setInterval(() => {
 		$('#quote').text(quotes[rand()]);
-	}, 1000);
+	}, 10000);
 };
 
 // Insert Comma Function /////////////////////////////////////////////////////
