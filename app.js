@@ -19,13 +19,9 @@ const request = (location, place) => {
 				// Hospitalization Data
 				const totalHosp = String(usData.hospitalizedCumulative);
 				const currHosp = String(usData.hospitalizedCurrently);
-				// const totalICU = String(usData.inIcuCumulative);
-				// const currICU = String(usData.inIcuCurrently);
 
 				$('#info-total-hosp').text(convertStr(totalHosp));
 				$('#info-curr-hosp').text(convertStr(currHosp));
-				// $('#info-total-icu').text(convertStr(totalICU));
-				// $('#info-curr-icu').text(convertStr(currICU));
 
 				// Outcomes Data
 				const totalDeath = String(usData.death);
