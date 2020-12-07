@@ -127,38 +127,6 @@ h4:hover {
 	}
 }
 
-#options {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	box-shadow: 0px 0px 5px #1d5eb9;
-	border-radius: 5px;
-	margin: 20px auto;
-	padding: 25px 0;
-}
-
-.selection {
-	padding: 5px;
-	padding-top: 55px;
-	margin: 2px;
-	box-shadow: 0px 0px 5px #af2d2d;
-	border-radius: 100px;
-	color: #333;
-	width: 140px;
-	height: 140px;
-}
-
-#options #opt-r-cases,
-#options #opt-r-deaths,
-#options #opt-ltc {
-	padding-top: 40px;
-}
-
-.selection:hover {
-	background-color: #d6d6d6;
-	cursor: pointer;
-}
-
 #details {
 	display: flex;
 	flex-wrap: wrap;
@@ -166,17 +134,7 @@ h4:hover {
 	box-shadow: 0px 0px 5px #1d5eb9;
 	border-radius: 5px;
 	margin: 20px auto;
-	padding: 20px;
-}
-
-.data {
-	padding-top: 57px;
-	margin: 2px;
-	box-shadow: 0px 0px 5px #af2d2d;
-	border-radius: 100px;
-	color: #333;
-	width: 150px;
-	height: 150px;
+	padding: 25px 25px;
 }
 
 #state-select,
@@ -195,13 +153,11 @@ h4:hover {
 #us-total,
 #random {
 	outline: none;
-	color: #1d5eb9;
-	border-radius: 50px;
 }
 
 #state-select:hover,
 #us-total:hover,
-#random:hover {
+#random:hover:hover {
 	background-color: #d6d6d6;
 }
 

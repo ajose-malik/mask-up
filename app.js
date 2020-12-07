@@ -15,6 +15,7 @@ const request = (location, place) => {
 				$('#total-case').text(convertStr(totalCase));
 				$('#total-death').text(convertStr(totalDeath));
 				$('#place').text('United States');
+				console.log(usData);
 			} else {
 				// const totalCase = String(data.positive);
 				// const totalDeath = String(data.death);

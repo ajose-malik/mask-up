@@ -20,3 +20,13 @@ const convertStr = str => {
 		return strArr.join('');
 	}
 };
+
+// Display Detail /////////////////////////////////////////////////////////////////
+const showDetail = () => {
+	$(
+		'#options, #options-left, #options-right, #state-select, #us-total, #random'
+	).hide();
+	$('#details-left, #details-right').css('color', '#af2d2d');
+	$('#search, #details-left, #details-right').show().css('display', 'inline');
+	$('#details').css('display', 'flex');
+};
