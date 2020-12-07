@@ -48,8 +48,8 @@
 					is the data source for this project.
 				</p>
 				<p class="credit">
-					For information on Covid-19 racial disparities, take a look at The
-					COVID Tracking Project
+					For information on Covid-19 racial disparities, refer to The COVID
+					Tracking Project
 					<a href="https://covidtracking.com/race/dashboard" target="_blank"
 						>Racial Data Dashboard</a
 					>.
@@ -75,10 +75,60 @@
 				</p>
 				<h2 id="place"></h2>
 
-				<!-- Display Category-->
-				<div id="details"></div>
+				<!-- Display Category /////////////////-->
+				<div id="details">
+					<!-- Cases Data -->
+					<div class="cards">
+						<p>CASES</p>
+						<hr />
+						<div class="info-text">
+							<p>Total cases</p>
+							<p id="info-cases" class="numbers"></p>
+						</div>
+						<div class="info-text">
+							<p>New cases today</p>
+							<p id="info-new-cases" class="numbers"></p>
+						</div>
+					</div>
 
-				<!-- Form Request -->
+					<!--Hospitalization Data -->
+					<div class="cards">
+						<p>HOSPITALIZATION</p>
+						<hr />
+						<div class="info-text">
+							<p>Total hospitalized</p>
+							<p id="info-total-hosp" class="numbers"></p>
+						</div>
+						<div class="info-text">
+							<p>Currently hospitalized</p>
+							<p id="info-curr-hosp" class="numbers"></p>
+						</div>
+						<!-- <div class="info-text">
+							<p>Total in ICU</p>
+							<p id="info-total-icu" class="numbers"></p>
+						</div>
+						<div class="info-text">
+							<p>Currently in ICU</p>
+							<p id="info-curr-icu" class="numbers"></p>
+						</div> -->
+					</div>
+
+					<!-- Outcomes Data -->
+					<div class="cards">
+						<p>OUTCOMES</p>
+						<hr />
+						<div class="info-text">
+							<p>Deaths</p>
+							<p id="info-deaths" class="numbers"></p>
+						</div>
+						<div class="info-text">
+							<p>New deaths today</p>
+							<p id="info-new-deaths" class="numbers"></p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Form Request ///////////////////////-->
 				<form action="#" id="state-submit">
 					<nav>
 						<div id="left"><i class="fas fa-chevron-left"></i></div>
