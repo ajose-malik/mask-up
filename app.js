@@ -68,7 +68,8 @@ $('#enter').click(() => {
 });
 
 // Back to Intro Slide
-$('h4').click(() => {
+$('h2').click(() => {
+	request('us/current');
 	$('#interface').hide();
 	$('#mask-up').show();
 	$('#intro, #mask-up p, #license-icon, #enter').hide();

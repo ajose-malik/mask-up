@@ -104,12 +104,12 @@ html {
 	/* display: none; */
 }
 
-#interface h4 {
+#interface h2 {
 	font-family: 'Major Mono Display', monospace;
 	font-size: 5rem;
 }
 
-h4:hover {
+h2:hover {
 	cursor: pointer;
 }
 
@@ -124,6 +124,7 @@ h4:hover {
 #place {
 	color: #1d5eb9;
 	margin: 0px auto 10px;
+	font-size: 3rem;
 }
 
 #details {
