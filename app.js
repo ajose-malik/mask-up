@@ -82,4 +82,4 @@ $('h2').click(() => {
 // randQuotes();
 
 // Default Request
-request('us/current');
+// request('us/current');
