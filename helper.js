@@ -26,34 +26,28 @@ const convertStr = str => {
 	}
 };
 
-// Local Storage //////////////////////////////////////////////////////////////////
-
-// Check Local Storage //////////
-
+// Check Local Storage ///////////////////////////////////////////////////////////
 const checkLocal = (place = 'United States') => {
 	if (place in localStorage) {
-		// Cases Data
-		$('#total-case, #info-cases').text(JSON.parse(localStorage.getItem(place)));
-		$('#info-new-cases').text(place.newCases);
-		console.log(JSON.parse(localStorage.getItem(place).key(0)));
-		// Hospitalization Data
+		const location = JSON.parse(localStorage.getItem(place));
 
-		$('#info-total-hosp').text(place.totalHosp);
-		$('#info-curr-hosp').text(place.currHosp);
+		// Cases Data
+		$('#total-case, #info-cases').text(location.totalCases);
+		$('#info-new-cases').text(location.newCases);
+
+		// Hospitalization Data
+		$('#info-total-hosp').text(location.totalHosp);
+		$('#info-curr-hosp').text(location.currHosp);
 
 		// Outcomes Data
-
-		$('#total-death, #info-deaths').text(place.totalDeaths);
-		$('#info-new-deaths').text(place.newDeaths);
+		$('#total-death, #info-deaths').text(location.totalDeaths);
+		$('#info-new-deaths').text(location.newDeaths);
 	} else {
-		console.log('boohoo!');
+		return 'go fetch';
 	}
-	// const check = JSON.parse(localStorage.getItem(place));
 };
 
-// checkLocal();
-
-// Save to Local Storage ///////////
+// Save to Local Storage ///////////////////////////////////////////////////////////////
 const saveLocal = (place, { ...search }) => {
 	const localData = {
 		...search
