@@ -24,3 +24,12 @@ const quotes = [
 	`And our hearts cry, "How long? How far? How much more?" — Nicole Williams.`,
 	'Without doubt, maintaining a distance from some people is the only way to maintaining your equanimity – and, of course, to avoid catching COVID-19! — AVIS Viswanathan.'
 ];
+
+// Random Quotes Function //////////////////////////////////////////////////////////////////
+const randQuotes = () => {
+	const rand = () => Math.floor(Math.random() * quotes.length);
+	$('#quote').text(quotes[rand()]);
+	setInterval(() => {
+		$('#quote').text(quotes[rand()]);
+	}, 10000);
+};

@@ -3,16 +3,15 @@
 
 // Request United States
 $('#us-total').click(() => {
-	const url = 'us/current';
-	checkLocal(url);
+	checkLocal('us/current', 'United States');
 });
 
 // Request State
 $('#state-select').change(function () {
 	const stateAbbr = $(this).val().toLowerCase();
-	const state = `states/${stateAbbr}/current`;
+	const url = `states/${stateAbbr}/current`;
 	const place = $(this).find('option:selected').text();
-	request(state, place);
+	checkLocal(url, place);
 	setTimeout(() => {
 		$(this).val('');
 	}, 1000);
@@ -40,7 +39,7 @@ $('#enter').click(() => {
 
 // Back to Intro Slide
 $('h2').click(() => {
-	request('us/current');
+	checkLocal('us/current', 'United States');
 	$('#interface').hide();
 	$('#mask-up').show();
 	$('#intro, #mask-up p, #license-icon, #enter').hide();

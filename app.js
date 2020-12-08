@@ -1,43 +1,12 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-// Data Request Function ////////////////////////////////////////////
-const request = (url, place) => {
-	$.ajax({
-		url: `https://api.covidtracking.com/v1/${url}.json`
-	}).then(
-		data => {
-			const usData = data[0];
-			const stateData = data;
-			if (url === 'us/current') {
-				// Call View Template
-				viewTemplate(usData, place);
-
-				// Title
-				$('#place').text('United States');
-			} else {
-				// Call View Template
-				viewTemplate(stateData, place);
-
-				// Title
-				$('#place').text(place);
-			}
-		},
-		() => {
-			console.log('BOOHOO!');
-		}
-	);
+// Save to Local Storage ///////////////////////////////////////////////////////////////
+const saveLocal = (place, { ...search }) => {
+	const localData = {
+		...search
+	};
+	localStorage.setItem(place, JSON.stringify(localData));
 };
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-// Random Quotes Function ///////////////////////////////////////////////////////
-const randQuotes = () => {
-	const rand = () => Math.floor(Math.random() * quotes.length);
-	$('#quote').text(quotes[rand()]);
-	setInterval(() => {
-		$('#quote').text(quotes[rand()]);
-	}, 10000);
-};
-
-// Insert Comma Function /////////////////////////////////////////////////////
+// Insert Comma Function ///////////////////////////////////////////////////////////////
 const convertStr = str => {
 	if (str === 'null') {
 		return 'Not Reported';
@@ -54,35 +23,6 @@ const convertStr = str => {
 			return strArr.join('');
 		}
 	}
-};
-
-// Check Local Storage ///////////////////////////////////////////////////////////
-const checkLocal = (url, place = 'United States') => {
-	if (place in localStorage) {
-		const location = JSON.parse(localStorage.getItem(place));
-
-		// Cases Data
-		$('#total-case, #info-cases').text(location.totalCases);
-		$('#info-new-cases').text(location.newCases);
-
-		// Hospitalization Data
-		$('#info-total-hosp').text(location.totalHosp);
-		$('#info-curr-hosp').text(location.currHosp);
-
-		// Outcomes Data
-		$('#total-death, #info-deaths').text(location.totalDeaths);
-		$('#info-new-deaths').text(location.newDeaths);
-	} else {
-		request(url, place);
-	}
-};
-
-// Save to Local Storage ///////////////////////////////////////////////////////////////
-const saveLocal = (place, { ...search }) => {
-	const localData = {
-		...search
-	};
-	localStorage.setItem(place, JSON.stringify(localData));
 };
 
 // Populate Data & Save to Local ////////////////////////////////////////////////////////
@@ -119,6 +59,57 @@ const viewTemplate = (data, place = 'United States') => {
 	saveLocal(place, { ...search });
 };
 
+// Data Request Function /////////////////////////////////////////////////////////////////
+const request = (url, place) => {
+	$.ajax({
+		url: `https://api.covidtracking.com/v1/${url}.json`
+	}).then(
+		data => {
+			const usData = data[0];
+			const stateData = data;
+			if (url === 'us/current') {
+				// Call View Template
+				viewTemplate(usData, place);
+
+				// Title
+				$('#place').text(place);
+			} else {
+				// Call View Template
+				viewTemplate(stateData, place);
+
+				// Title
+				$('#place').text(place);
+			}
+		},
+		() => {
+			console.log('BOOHOO!');
+		}
+	);
+};
+
+// Check Local Storage ////////////////////////////////////////////////////////////////////
+const checkLocal = (url, place) => {
+	if (place in localStorage) {
+		const location = JSON.parse(localStorage.getItem(place));
+
+		// Cases Data
+		$('#total-case, #info-cases').text(location.totalCases);
+		$('#info-new-cases').text(location.newCases);
+
+		// Hospitalization Data
+		$('#info-total-hosp').text(location.totalHosp);
+		$('#info-curr-hosp').text(location.currHosp);
+
+		// Outcomes Data
+		$('#total-death, #info-deaths').text(location.totalDeaths);
+		$('#info-new-deaths').text(location.newDeaths);
+
+		$('#place').text(place);
+	} else {
+		request(url, place);
+	}
+};
+
 ////////////////////////////////////////////////////////////////////////////////
 // Initialization //////////////////////////////////////////////////////////////
 
@@ -126,4 +117,4 @@ const viewTemplate = (data, place = 'United States') => {
 // randQuotes();
 
 // Default Request
-// request('us/current');
+// request('us/current', 'United States');
