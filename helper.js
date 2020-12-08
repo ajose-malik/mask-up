@@ -30,15 +30,30 @@ const convertStr = str => {
 
 // Check Local Storage //////////
 
-// const checkLocal = place => {
-// 	const check = JSON.parse(localStorage.getItem(place));
-// 	console.log(check.favFood);
-// };
+const checkLocal = (place = 'United States') => {
+	if (place in localStorage) {
+		// Cases Data
+		$('#total-case, #info-cases').text(
+			JSON.parse(localStorage.getItem(place.totalCases))
+		);
+		$('#info-new-cases').text(place.newCases);
+		console.log(works);
+		// Hospitalization Data
 
-// checkLocal('user');
+		$('#info-total-hosp').text(place.totalHosp);
+		$('#info-curr-hosp').text(place.currHosp);
 
-// Fetch from Local Storage ////////
-// const fetchLocal = () => {};
+		// Outcomes Data
+
+		$('#total-death, #info-deaths').text(place.totalDeaths);
+		$('#info-new-deaths').text(place.newDeaths);
+	} else {
+		console.log('boohoo!');
+	}
+	// const check = JSON.parse(localStorage.getItem(place));
+};
+
+// checkLocal();
 
 // Save to Local Storage ///////////
 const saveLocal = (
@@ -51,17 +66,17 @@ const saveLocal = (
 	newDeaths
 ) => {
 	const localData = {
-		totalCases: totalCases,
-		newCases: newCases,
-		totalHosp: totalHosp,
-		currHosp: currHosp,
-		totalDeaths: totalDeaths,
-		newDeaths: newDeaths
+		totalCases,
+		newCases,
+		totalHosp,
+		currHosp,
+		totalDeaths,
+		newDeaths
 	};
 	localStorage.setItem(place, JSON.stringify(localData));
 };
 
-// Data View Template ////////////////////////////////////////////////////////
+// Populate Data & Save to Local ////////////////////////////////////////////////////////
 const viewTemplate = (data, place = 'United States') => {
 	// Cases Data
 	const totalCases = convertStr(String(data.positive));

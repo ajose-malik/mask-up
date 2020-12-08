@@ -23,7 +23,7 @@ const request = (location, place) => {
 			}
 		},
 		() => {
-			console.log('DISASTER');
+			console.log('GIDDY-UP!');
 		}
 	);
 };
