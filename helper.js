@@ -1,4 +1,3 @@
-// Location Function ////////////////////////////////////////
 // Random Quotes Function ///////////////////////////////////////////////////////
 const randQuotes = () => {
 	const rand = () => Math.floor(Math.random() * quotes.length);
@@ -27,28 +26,71 @@ const convertStr = str => {
 	}
 };
 
-// Data View Template ////////////////////////////////////////////////////////
-const viewTemplate = data => {
-	// Cases Data
-	const totalCase = String(data.positive);
-	const newCases = String(data.positiveIncrease);
+// Local Storage //////////////////////////////////////////////////////////////////
 
-	$('#total-case, #info-cases').text(convertStr(totalCase));
-	$('#info-new-cases').text(convertStr(newCases));
+// Check Local Storage //////////
 
-	// Hospitalization Data
-	const totalHosp = String(data.hospitalizedCumulative);
-	const currHosp = String(data.hospitalizedCurrently);
+// const checkLocal = place => {
+// 	const check = JSON.parse(localStorage.getItem(place));
+// 	console.log(check.favFood);
+// };
 
-	$('#info-total-hosp').text(convertStr(totalHosp));
-	$('#info-curr-hosp').text(convertStr(currHosp));
+// checkLocal('user');
 
-	// Outcomes Data
-	const totalDeath = String(data.death);
-	const newDeaths = String(data.deathIncrease);
+// Fetch from Local Storage ////////
+// const fetchLocal = () => {};
 
-	$('#total-death, #info-deaths').text(convertStr(totalDeath));
-	$('#info-new-deaths').text(convertStr(newDeaths));
+// Save to Local Storage ///////////
+const saveLocal = (
+	place,
+	totalCases,
+	newCases,
+	totalHosp,
+	currHosp,
+	totalDeaths,
+	newDeaths
+) => {
+	const localData = {
+		totalCases: totalCases,
+		newCases: newCases,
+		totalHosp: totalHosp,
+		currHosp: currHosp,
+		totalDeaths: totalDeaths,
+		newDeaths: newDeaths
+	};
+	localStorage.setItem(place, JSON.stringify(localData));
 };
 
-// Display Detail /////////////////////////////////////////////////////////////////
+// Data View Template ////////////////////////////////////////////////////////
+const viewTemplate = (data, place = 'United States') => {
+	// Cases Data
+	const totalCases = convertStr(String(data.positive));
+	const newCases = convertStr(String(data.positiveIncrease));
+
+	$('#total-case, #info-cases').text(totalCases);
+	$('#info-new-cases').text(newCases);
+
+	// Hospitalization Data
+	const totalHosp = convertStr(String(data.hospitalizedCumulative));
+	const currHosp = convertStr(String(data.hospitalizedCurrently));
+
+	$('#info-total-hosp').text(totalHosp);
+	$('#info-curr-hosp').text(currHosp);
+
+	// Outcomes Data
+	const totalDeaths = convertStr(String(data.death));
+	const newDeaths = convertStr(String(data.deathIncrease));
+
+	$('#total-death, #info-deaths').text(totalDeaths);
+	$('#info-new-deaths').text(newDeaths);
+
+	saveLocal(
+		place,
+		totalCases,
+		newCases,
+		totalHosp,
+		currHosp,
+		totalDeaths,
+		newDeaths
+	);
+};

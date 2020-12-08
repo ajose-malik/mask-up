@@ -10,13 +10,13 @@ const request = (location, place) => {
 			const stateData = data;
 			if (location === 'us/current') {
 				// Call View Template
-				viewTemplate(usData);
+				viewTemplate(usData, place);
 
 				// Title
 				$('#place').text('United States');
 			} else {
 				// Call View Template
-				viewTemplate(stateData);
+				viewTemplate(stateData, place);
 
 				// Title
 				$('#place').text(place);
