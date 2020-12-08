@@ -9,36 +9,17 @@ const request = (location, place) => {
 			const usData = data[0];
 			const stateData = data;
 			if (location === 'us/current') {
-				// Cases Data
-				const totalCase = String(usData.positive);
-				const newCases = String(usData.positiveIncrease);
-
-				$('#total-case, #info-cases').text(convertStr(totalCase));
-				$('#info-new-cases').text(convertStr(newCases));
-
-				// Hospitalization Data
-				const totalHosp = String(usData.hospitalizedCumulative);
-				const currHosp = String(usData.hospitalizedCurrently);
-
-				$('#info-total-hosp').text(convertStr(totalHosp));
-				$('#info-curr-hosp').text(convertStr(currHosp));
-
-				// Outcomes Data
-				const totalDeath = String(usData.death);
-				const newDeaths = String(usData.deathIncrease);
-
-				$('#total-death, #info-deaths').text(convertStr(totalDeath));
-				$('#info-new-deaths').text(convertStr(newDeaths));
+				// Call View Template
+				viewTemplate(usData);
 
 				// Title
 				$('#place').text('United States');
 			} else {
-				// const totalCase = String(data.positive);
-				// const totalDeath = String(data.death);
-				// $('#total-case').append(convertStr(totalCase));
-				// $('#total-death').append(convertStr(totalDeath));
+				// Call View Template
+				viewTemplate(stateData);
+
+				// Title
 				$('#place').text(place);
-				console.log(stateData);
 			}
 		},
 		() => {

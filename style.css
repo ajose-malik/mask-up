@@ -30,6 +30,7 @@ html {
 	font-size: 1.8rem;
 	text-align: center;
 	display: none;
+	padding: 0 15px;
 }
 
 #mask-up h1 {
@@ -43,19 +44,19 @@ html {
 }
 
 #enter {
-	padding-left: 8px;
+	padding: 5px 0px 3px 8px;
 	box-shadow: 0px 0px 5px #1d5eb9;
 	margin: 20px auto;
 	text-align: center;
 	font-family: 'Roboto', sans-serif;
 	letter-spacing: 0.7rem;
-	font-size: 2rem;
+	font-size: 1.2rem;
 	color: #1d5eb9;
-	font-weight: normal;
+	font-weight: bold;
 	border-radius: 50px;
 	border: none;
 	background-color: #fff;
-	width: 150px;
+	width: 100px;
 }
 
 #enter:hover {
@@ -117,6 +118,7 @@ h4:hover {
 	font-style: italic;
 	font-size: 1.2rem;
 	height: 40px;
+	padding: 0 20px;
 }
 
 #place {
@@ -127,10 +129,7 @@ h4:hover {
 #details {
 	display: flex;
 	flex-direction: column;
-	/* flex-wrap: wrap; */
 	align-items: center;
-	/* align-content: center; */
-	/* justify-content: center; */
 	box-shadow: 0px 0px 5px #1d5eb9;
 	border-radius: 5px;
 	margin: 0px auto 20px;
@@ -139,9 +138,6 @@ h4:hover {
 	font-size: 1.4rem;
 	font-weight: normal;
 	background-color: #d6d6d66c;
-
-	/* height: 200px; */
-	/* overflow: auto; */
 }
 
 .cards {
@@ -191,7 +187,7 @@ hr {
 
 #state-select:hover,
 #us-total:hover,
-#random:hover:hover {
+#random:hover {
 	background-color: #d6d6d6;
 }
 
@@ -201,11 +197,12 @@ button {
 	padding: 3px;
 	border-radius: 50px;
 	cursor: pointer;
+	font-size: 1.2rem;
 }
 
 #us-total,
 #random {
-	padding-left: 10px;
+	padding-left: 12px;
 	padding-right: 12px;
 }
 
@@ -236,5 +233,9 @@ nav {
 
 	hr {
 		width: 200px;
+	}
+
+	.container {
+		padding: 20px 0;
 	}
 }
