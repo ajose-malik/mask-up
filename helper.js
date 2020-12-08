@@ -33,11 +33,9 @@ const convertStr = str => {
 const checkLocal = (place = 'United States') => {
 	if (place in localStorage) {
 		// Cases Data
-		$('#total-case, #info-cases').text(
-			JSON.parse(localStorage.getItem(place.totalCases))
-		);
+		$('#total-case, #info-cases').text(JSON.parse(localStorage.getItem(place)));
 		$('#info-new-cases').text(place.newCases);
-		console.log(works);
+		console.log(JSON.parse(localStorage.getItem(place).key(0)));
 		// Hospitalization Data
 
 		$('#info-total-hosp').text(place.totalHosp);
@@ -56,22 +54,9 @@ const checkLocal = (place = 'United States') => {
 // checkLocal();
 
 // Save to Local Storage ///////////
-const saveLocal = (
-	place,
-	totalCases,
-	newCases,
-	totalHosp,
-	currHosp,
-	totalDeaths,
-	newDeaths
-) => {
+const saveLocal = (place, { ...search }) => {
 	const localData = {
-		totalCases,
-		newCases,
-		totalHosp,
-		currHosp,
-		totalDeaths,
-		newDeaths
+		...search
 	};
 	localStorage.setItem(place, JSON.stringify(localData));
 };
@@ -99,13 +84,13 @@ const viewTemplate = (data, place = 'United States') => {
 	$('#total-death, #info-deaths').text(totalDeaths);
 	$('#info-new-deaths').text(newDeaths);
 
-	saveLocal(
-		place,
+	const search = {
 		totalCases,
 		newCases,
 		totalHosp,
 		currHosp,
 		totalDeaths,
 		newDeaths
-	);
+	};
+	saveLocal(place, { ...search });
 };
