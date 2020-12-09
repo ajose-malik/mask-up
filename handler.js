@@ -3,13 +3,14 @@
 
 // Request United States
 $('#us-total').click(() => {
-	// if (dataBox.length > 1) {
-	// 	navToggle2('right');
-	// }
+	if (dataBox.length > 1) {
+		navToggle2('right');
+	}
 
 	$('#left-fake').show();
 	$('#left i').css('display', 'none');
 	checkLocal('us/current', 'United States');
+	return false;
 });
 
 // Request State
@@ -32,6 +33,7 @@ $('#random').click(() => {
 	const place = $('#state-select').children().eq(rand).text();
 	const url = `states/${randState}/current`;
 	checkLocal(url, place);
+	return false;
 });
 
 // Toggle Intro
