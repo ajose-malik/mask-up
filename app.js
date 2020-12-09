@@ -1,9 +1,57 @@
+const dataBox = [];
+
+// Carousel //////////////////////////////////////////////////////////////////////////
+const carousel = index => {
+	// Cases Data
+	$('#total-case, #info-cases').text(dataBox[index].totalCases);
+	$('#info-new-cases').text(dataBox[index].newCases);
+
+	// Hospitalization Data
+	$('#info-total-hosp').text(dataBox[index].totalHosp);
+	$('#info-curr-hosp').text(dataBox[index].currHosp);
+
+	// Outcomes Data
+	$('#total-death, #info-deaths').text(dataBox[index].totalDeaths);
+	$('#info-new-deaths').text(dataBox[index].newDeaths);
+
+	// Title
+	$('#place').text(dataBox[index].place);
+};
+
+// Data Box Navigation ///////////////////////////////////////////////////////////////////////////
+const navLeft = place => {
+	const idxPlace = dataBox.findIndex(idx => idx.place === place);
+
+	if (idxPlace === 1) {
+		$('#left-fake').show();
+		$('#left i').css('display', 'none');
+		carousel(idxPlace - 1);
+	} else {
+		carousel(idxPlace - 1);
+	}
+};
+
+const navRight = place => {
+	const idxPlace = dataBox.findIndex(idx => idx.place === place);
+
+	if (idxPlace === dataBox.length - 2) {
+		$('#right-fake').show();
+		$('#right i').css('display', 'none');
+		carousel(idxPlace + 1);
+	} else {
+		carousel(idxPlace + 1);
+	}
+};
+
 // Save to Local Storage ///////////////////////////////////////////////////////////////
-const saveLocal = (place, { ...search }) => {
+const saveData = (place, { ...search }) => {
 	const localData = {
 		...search
 	};
 	localStorage.setItem(place, JSON.stringify(localData));
+
+	dataBox.push({ place, ...search });
+	console.log(dataBox);
 };
 
 // Insert Comma Function ///////////////////////////////////////////////////////////////
@@ -56,7 +104,7 @@ const viewTemplate = (data, place = 'United States') => {
 		totalDeaths,
 		newDeaths
 	};
-	saveLocal(place, { ...search });
+	saveData(place, { ...search });
 };
 
 // Data Request Function /////////////////////////////////////////////////////////////////
@@ -110,11 +158,15 @@ const checkLocal = (url, place) => {
 	}
 };
 
-////////////////////////////////////////////////////////////////////////////////
-// Initialization //////////////////////////////////////////////////////////////
+// Initialization
+const init = () => {
+	localStorage.clear();
+	request('us/current', 'United States');
+};
 
-// Random Quotes
+////////////////////////////////////////////////////////////////////////////////
+// Initiate Project //////////////////////////////////////////////////////////////
+
 // randQuotes();
 
-// Default Request
-// request('us/current', 'United States');
+init();

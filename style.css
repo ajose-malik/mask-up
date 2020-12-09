@@ -209,18 +209,32 @@ button {
 }
 
 nav {
-	color: #1d5eb9;
 	margin-bottom: 16px;
 }
 
-#left,
-#right {
-	display: inline;
-	cursor: pointer;
+#left-fake i,
+#right-fake i {
+	color: #999999be;
 }
 
 #left i,
 #right i {
+	display: none;
+	color: #1d5eb9;
+	cursor: pointer;
+}
+
+#left,
+#right,
+#left-fake,
+#right-fake {
+	display: inline;
+}
+
+#left i,
+#right i,
+#left-fake i,
+#right-fake i {
 	padding: 0 12px;
 }
 
