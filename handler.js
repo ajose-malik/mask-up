@@ -3,19 +3,18 @@
 
 // Request United States
 $('#us-total').click(() => {
+	if (dataBox.length > 1) {
+		navToggle2('right');
+	}
+
 	$('#left-fake').show();
 	$('#left i').css('display', 'none');
-	if (dataBox.length > 1) {
-		$('#right-fake').hide();
-		$('#right i').css('display', 'inline');
-	}
 	checkLocal('us/current', 'United States');
 });
 
 // Request State
 $('#state-select').change(function () {
-	$('#left-fake').hide();
-	$('#left i').css('display', 'inline');
+	navToggle();
 	const stateAbbr = $(this).val().toLowerCase();
 	const url = `states/${stateAbbr}/current`;
 	const place = $(this).find('option:selected').text();
@@ -27,8 +26,7 @@ $('#state-select').change(function () {
 
 // Request Random
 $('#random').click(() => {
-	$('#left-fake').hide();
-	$('#left i').css('display', 'inline');
+	navToggle();
 	const rand = Math.floor(Math.random() * 55 + 1);
 	const randState = $('#state-select').children().eq(rand).val().toLowerCase();
 	const place = $('#state-select').children().eq(rand).text();
@@ -38,21 +36,20 @@ $('#random').click(() => {
 
 // Toggle Intro
 $('h1').click(() => {
-	$('#mask-up p, #license-icon, #enter').toggle();
+	$('#mask-up p, #license-icon, #enter, h1, h2').toggle();
 });
 
 // Enter Interface
 $('#enter').click(() => {
 	$('#mask-up').hide();
-	$('#interface').show();
+	$('#interface').css('display', 'flex');
 });
 
 // Back to Intro Slide
-$('h2').click(() => {
+$('h3').click(() => {
 	checkLocal('us/current', 'United States');
-	$('#interface').hide();
-	$('#mask-up').show();
-	$('#intro, #mask-up p, #license-icon, #enter').hide();
+	$('#intro, #mask-up p, #license-icon, #enter, h2, #interface').hide();
+	$('#mask-up, h1').toggle();
 });
 
 // Navigation Left Arrows
@@ -60,8 +57,7 @@ $('#left').click(() => {
 	const place = () => {
 		return $('#place').text();
 	};
-	$('#right-fake').hide();
-	$('#right i').css('display', 'inline');
+	navToggle2('right');
 	navLeft(place());
 });
 
@@ -70,7 +66,6 @@ $('#right').click(() => {
 	const place = () => {
 		return $('#place').text();
 	};
-	$('#left-fake').hide();
-	$('#left i').css('display', 'inline');
+	navToggle2('left');
 	navRight(place());
 });

@@ -45,6 +45,18 @@ const navRight = place => {
 	}
 };
 
+const navToggle = () => {
+	$('#left-fake').hide();
+	$('#left i').css('display', 'inline');
+	$('#right-fake').show();
+	$('#right i').hide();
+};
+
+const navToggle2 = side => {
+	$(`#${side}-fake`).hide();
+	$(`#${side} i`).css('display', 'inline');
+};
+
 // Save to Local Storage ///////////////////////////////////////////////////////////////
 const saveData = (place, { ...search }) => {
 	const localData = {
@@ -168,6 +180,6 @@ const init = () => {
 ////////////////////////////////////////////////////////////////////////////////
 // Initiate Project //////////////////////////////////////////////////////////////
 
-// randQuotes();
+randQuotes();
 
 init();
