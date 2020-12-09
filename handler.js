@@ -2,7 +2,7 @@
 // Event Handlers //////////////////////////////////////////////////////////
 
 // Request United States
-$('#us-total').click(() => {
+$('#us-total').click(e => {
 	if (dataBox.length > 1) {
 		navToggle2('right');
 	}
@@ -10,7 +10,7 @@ $('#us-total').click(() => {
 	$('#left-fake').show();
 	$('#left i').css('display', 'none');
 	checkLocal('us/current', 'United States');
-	return false;
+	e.preventDefault();
 });
 
 // Request State
@@ -26,14 +26,14 @@ $('#state-select').change(function () {
 });
 
 // Request Random
-$('#random').click(() => {
+$('#random').click(e => {
 	navToggle();
 	const rand = Math.floor(Math.random() * 55 + 1);
 	const randState = $('#state-select').children().eq(rand).val().toLowerCase();
 	const place = $('#state-select').children().eq(rand).text();
 	const url = `states/${randState}/current`;
 	checkLocal(url, place);
-	return false;
+	e.preventDefault();
 });
 
 // Toggle Intro
