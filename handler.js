@@ -5,6 +5,10 @@
 $('#us-total').click(() => {
 	$('#left-fake').show();
 	$('#left i').css('display', 'none');
+	if (dataBox.length > 1) {
+		$('#right-fake').hide();
+		$('#right i').css('display', 'inline');
+	}
 	checkLocal('us/current', 'United States');
 });
 
@@ -56,6 +60,17 @@ $('#left').click(() => {
 	const place = () => {
 		return $('#place').text();
 	};
-
+	$('#right-fake').hide();
+	$('#right i').css('display', 'inline');
 	navLeft(place());
+});
+
+// Navigation Right Arrows
+$('#right').click(() => {
+	const place = () => {
+		return $('#place').text();
+	};
+	$('#left-fake').hide();
+	$('#left i').css('display', 'inline');
+	navRight(place());
 });

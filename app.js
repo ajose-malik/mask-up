@@ -27,6 +27,8 @@ const navLeft = place => {
 		$('#left i').css('display', 'none');
 		carousel(idxPlace - 1);
 	} else {
+		$('#right-fake').hide();
+		$('#right i').css('display', 'inline');
 		carousel(idxPlace - 1);
 	}
 };
@@ -51,7 +53,6 @@ const saveData = (place, { ...search }) => {
 	localStorage.setItem(place, JSON.stringify(localData));
 
 	dataBox.push({ place, ...search });
-	console.log(dataBox);
 };
 
 // Insert Comma Function ///////////////////////////////////////////////////////////////
