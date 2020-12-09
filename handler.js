@@ -3,9 +3,9 @@
 
 // Request United States
 $('#us-total').click(() => {
-	if (dataBox.length > 1) {
-		navToggle2('right');
-	}
+	// if (dataBox.length > 1) {
+	// 	navToggle2('right');
+	// }
 
 	$('#left-fake').show();
 	$('#left i').css('display', 'none');
