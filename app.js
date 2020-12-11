@@ -46,8 +46,10 @@ const navRight = location => {
 };
 
 const navToggle = location => {
-	$('#left-fake').hide();
-	$('#left i').css('display', 'inline');
+	if (location !== 'United States') {
+		$('#left-fake').hide();
+		$('#left i').css('display', 'inline');
+	}
 
 	const idxPlace = dataBox.findIndex(idx => idx.place === location);
 
@@ -180,7 +182,6 @@ const checkLocal = (url, place) => {
 		navToggle(place);
 	} else {
 		request(url, place);
-		// navToggle(place);
 	}
 };
 
