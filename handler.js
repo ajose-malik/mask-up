@@ -31,7 +31,6 @@ $('#random').click(e => {
 	const place = $('#state-select').children().eq(rand).text();
 	const url = `states/${randState}/current`;
 	checkLocal(url, place);
-	navToggle(place);
 	e.preventDefault();
 });
 

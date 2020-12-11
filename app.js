@@ -45,19 +45,11 @@ const navRight = location => {
 	}
 };
 
-//////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////
 const navToggle = location => {
 	$('#left-fake').hide();
 	$('#left i').css('display', 'inline');
 
-	const idxPlace = dataBox.findIndex(idx => {
-		console.log(idx.place);
-		return idx.place === location;
-	});
-	console.log(idxPlace);
-	console.log(idxPlace === dataBox.length - 1);
+	const idxPlace = dataBox.findIndex(idx => idx.place === location);
 
 	if (idxPlace === dataBox.length - 1) {
 		$('#right-fake').show();
@@ -81,7 +73,9 @@ const saveData = (place, { ...search }) => {
 	localStorage.setItem(place, JSON.stringify(localData));
 
 	dataBox.push({ place, ...search });
-	navToggle(place);
+	if (dataBox.length > 1) {
+		navToggle(place);
+	}
 };
 
 // Insert Comma Function ///////////////////////////////////////////////////////////////
@@ -183,6 +177,7 @@ const checkLocal = (url, place) => {
 		$('#info-new-deaths').text(location.newDeaths);
 
 		$('#place').text(place);
+		navToggle(place);
 	} else {
 		request(url, place);
 		// navToggle(place);
