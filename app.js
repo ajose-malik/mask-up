@@ -19,8 +19,8 @@ const carousel = index => {
 };
 
 // Data Box Navigation ///////////////////////////////////////////////////////////////////////////
-const navLeft = place => {
-	const idxPlace = dataBox.findIndex(idx => idx.place === place);
+const navLeft = location => {
+	const idxPlace = dataBox.findIndex(idx => idx.place === location);
 
 	if (idxPlace === 1) {
 		$('#left-fake').show();
@@ -33,8 +33,8 @@ const navLeft = place => {
 	}
 };
 
-const navRight = place => {
-	const idxPlace = dataBox.findIndex(idx => idx.place === place);
+const navRight = location => {
+	const idxPlace = dataBox.findIndex(idx => idx.place === location);
 
 	if (idxPlace === dataBox.length - 2) {
 		$('#right-fake').show();
@@ -45,11 +45,27 @@ const navRight = place => {
 	}
 };
 
-const navToggle = () => {
+//////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+const navToggle = location => {
 	$('#left-fake').hide();
 	$('#left i').css('display', 'inline');
-	$('#right-fake').show();
-	$('#right i').hide();
+
+	const idxPlace = dataBox.findIndex(idx => {
+		console.log(idx.place);
+		return idx.place === location;
+	});
+	console.log(idxPlace);
+	console.log(idxPlace === dataBox.length - 1);
+
+	if (idxPlace === dataBox.length - 1) {
+		$('#right-fake').show();
+		$('#right i').hide();
+	} else {
+		$('#right-fake').hide();
+		$('#right i').show();
+	}
 };
 
 const navToggle2 = side => {
@@ -65,6 +81,7 @@ const saveData = (place, { ...search }) => {
 	localStorage.setItem(place, JSON.stringify(localData));
 
 	dataBox.push({ place, ...search });
+	navToggle(place);
 };
 
 // Insert Comma Function ///////////////////////////////////////////////////////////////
@@ -168,6 +185,7 @@ const checkLocal = (url, place) => {
 		$('#place').text(place);
 	} else {
 		request(url, place);
+		// navToggle(place);
 	}
 };
 

@@ -15,7 +15,6 @@ $('#us-total').click(e => {
 
 // Request State
 $('#state-select').change(function () {
-	navToggle();
 	const stateAbbr = $(this).val().toLowerCase();
 	const url = `states/${stateAbbr}/current`;
 	const place = $(this).find('option:selected').text();
@@ -27,12 +26,12 @@ $('#state-select').change(function () {
 
 // Request Random
 $('#random').click(e => {
-	navToggle();
 	const rand = Math.floor(Math.random() * 55 + 1);
 	const randState = $('#state-select').children().eq(rand).val().toLowerCase();
 	const place = $('#state-select').children().eq(rand).text();
 	const url = `states/${randState}/current`;
 	checkLocal(url, place);
+	navToggle(place);
 	e.preventDefault();
 });
 
