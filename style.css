@@ -176,7 +176,8 @@ hr {
 
 #state-select,
 #us-total,
-#random {
+#random,
+#searched-list {
 	border-radius: 50px;
 	padding: 5px;
 	box-shadow: 0px 0px 5px #1d5eb9;
@@ -188,15 +189,22 @@ hr {
 
 #state-select:focus-visible,
 #us-total,
-#random {
+#random,
+#searched-list:focus-visible {
 	outline: none;
 }
 
 #state-select:hover,
 #us-total:hover,
-#random:hover {
+#random:hover,
+#searched-list:hover {
 	background-color: #d6d6d6;
 	cursor: pointer;
+}
+
+#searched-list {
+	margin-top: 10px;
+	padding: 5px 27px;
 }
 
 button {

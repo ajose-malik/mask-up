@@ -122,6 +122,7 @@ const viewTemplate = (data, place = 'United States') => {
 	$('#total-death, #info-deaths').text(totalDeaths);
 	$('#info-new-deaths').text(newDeaths);
 
+	// Save Data
 	const search = {
 		totalCases,
 		newCases,
@@ -131,6 +132,11 @@ const viewTemplate = (data, place = 'United States') => {
 		newDeaths
 	};
 	saveData(place, { ...search });
+
+	// Place in Searched List
+	if (place !== 'United States') {
+		$('#searched-list').append($(`<option>${place}</option>`));
+	}
 };
 
 // Data Request Function /////////////////////////////////////////////////////////////////

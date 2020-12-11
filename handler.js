@@ -14,7 +14,7 @@ $('#us-total').click(e => {
 });
 
 // Request State
-$('#state-select').change(function () {
+$('#state-select, #searched-list').change(function () {
 	const stateAbbr = $(this).val().toLowerCase();
 	const url = `states/${stateAbbr}/current`;
 	const place = $(this).find('option:selected').text();
