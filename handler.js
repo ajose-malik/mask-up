@@ -43,6 +43,7 @@ $('h1').click(() => {
 $('#enter').click(() => {
 	$('#mask-up').hide();
 	$('#interface').css('display', 'flex');
+	refreshData();
 });
 
 // Back to Intro Slide

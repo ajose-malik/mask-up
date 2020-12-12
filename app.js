@@ -1,7 +1,13 @@
+// refreshData animation
+const refreshData = () => {
+	$('#details').fadeTo(0, 0.5).fadeTo(1000, 1);
+};
+// Carousel //////////////////////////////////////////////////////////////////////////
 const dataBox = [];
 
-// Carousel //////////////////////////////////////////////////////////////////////////
 const carousel = index => {
+	refreshData();
+
 	// Cases Data
 	$('#total-case, #info-cases').text(dataBox[index].totalCases);
 	$('#info-new-cases').text(dataBox[index].newCases);
@@ -101,6 +107,8 @@ const convertStr = str => {
 
 // Populate Data & Save to Local ////////////////////////////////////////////////////////
 const viewTemplate = (data, place = 'United States') => {
+	refreshData();
+
 	// Cases Data
 	const totalCases = convertStr(String(data.positive));
 	const newCases = convertStr(String(data.positiveIncrease));
@@ -170,6 +178,8 @@ const request = (url, place) => {
 // Check Local Storage ////////////////////////////////////////////////////////////////////
 const checkLocal = (url, place) => {
 	if (place in localStorage) {
+		refreshData();
+
 		const location = JSON.parse(localStorage.getItem(place));
 
 		// Cases Data
@@ -185,6 +195,7 @@ const checkLocal = (url, place) => {
 		$('#info-new-deaths').text(location.newDeaths);
 
 		$('#place').text(place);
+
 		navToggle(place);
 	} else {
 		request(url, place);
@@ -195,6 +206,7 @@ const checkLocal = (url, place) => {
 const init = () => {
 	localStorage.clear();
 	request('us/current', 'United States');
+	$('h1').fadeTo(0, 0.5).fadeTo(1000, 1);
 };
 
 ////////////////////////////////////////////////////////////////////////////////
