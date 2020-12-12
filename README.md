@@ -10,7 +10,7 @@ The [COVID Tracking Project](https://covidtracking.com/data) at *The Atlantic* i
 For information on Covid-19 racial disparities, refer to [The COVID Tracking Project Racial Data Dashboard](https://covidtracking.com/race/dashboard).
 
 ### Technologies:
-I developed this project using functional programming with HTML5, CSS3, JavaScript, and jQuery.
+I developed this project using functional programming with HTML5, CSS3, JavaScript, and jQuery. This project also uses local storage to store fetched data; and in doing so, any fetched data persists on the browser until it's manually refreshed.
 
 ### Installation Instructions:
 For this app to run in your browser, please organize your <script> in the HTML file as shown below:
