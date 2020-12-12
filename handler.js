@@ -51,6 +51,7 @@ $('h3').click(() => {
 	checkLocal('us/current', 'United States');
 	$('#intro, #mask-up p, #license-icon, #enter, h2, #interface').hide();
 	$('#mask-up, h1').toggle();
+	$('h1').fadeTo(0, 0.5).fadeTo(1000, 1);
 });
 
 // Navigation Left Arrows
