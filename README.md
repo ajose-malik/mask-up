@@ -12,6 +12,9 @@ For information on Covid-19 racial disparities, refer to [The COVID Tracking Pro
 ### Technologies:
 I developed this project using functional programming with HTML5, CSS3, JavaScript, and jQuery. This project also uses local storage to store fetched data; and in doing so, all fetched data persists on the browser until it's manually refreshed.
 
+### API Note:
+This app no longer renders data to the browser because the [COVID Tracking Project](https://covidtracking.com/data) API is no longer available for public use.
+
 ### Installation Instructions:
 For this app to run in your browser, please organize your <script> in the HTML file as shown below:
   
